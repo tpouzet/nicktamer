@@ -109,7 +109,7 @@ class TestBot(irc.bot.SingleServerIRCBot):
              #print(search)
              
              api_instance = giphy_client.DefaultApi()
-             api_key = 'ucCI9BC3PtWOYSYYqKMnSFh5ql9ktsmh' # str | Giphy API Key.
+             api_key = 'x' # str | Giphy API Key.
              q = search # str | Search query term or prhase.
              limit = 1 # int | The maximum number of records to return. (optional) (default to 25)
              offset = 0 # int | An optional results offset. Defaults to 0. (optional) (default to 0)
@@ -125,24 +125,24 @@ class TestBot(irc.bot.SingleServerIRCBot):
 
              api_response_dictionary = api_response.to_dict()
 
-             c.privmsg("#entiteparfaite2",api_response_dictionary["data"][0]["images"]["downsized_large"]["url"])
+             c.privmsg("#entiteparfaite",api_response_dictionary["data"][0]["images"]["downsized_large"]["url"])
 
         elif cmd == "wizz":
              victim=e.arguments[0].split(" ", 2)
              del victim[0]
              
-             for x in range(20):
+             for x in range(60):
                  #print(victim)
-                 c.privmsg("#entiteparfaite2","Hey, "+victim[0]+", DU NERF ESPECE DE GLANDEUR !!!!!!!!")
+                 c.privmsg("#entiteparfaite","Hey, "+victim[0]+", DU NERF ESPECE DE GLANDEUR !!!!!!!!")
                  time.sleep(1)
                 
         elif cmd == "insult":
-             c.privmsg("#entiteparfaite2",random.choice(list(open('insults.txt'))).strip())
+             c.privmsg("#entiteparfaite",random.choice(list(open('insults.txt'))).strip())
 
         elif cmd == "help":
-             c.privmsg("#entiteparfaite2","!gif + <up to 5 keywords> = gif link")
-             c.privmsg("#entiteparfaite2","!wizz + <nickname> = annoys everyone")
-             c.privmsg("#entiteparfaite2","!insult = gives you a roast")
+             c.privmsg("#entiteparfaite","!gif + <up to 5 keywords> = gif link")
+             c.privmsg("#entiteparfaite","!wizz + <nickname> = annoys everyone")
+             c.privmsg("#entiteparfaite","!insult = gives you a roast")
 
         else:
             c.notice(nick, "Not understood: " + cmd)

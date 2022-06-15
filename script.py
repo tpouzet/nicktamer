@@ -55,6 +55,8 @@ class TestBot(irc.bot.SingleServerIRCBot):
             self.do_command(e, a[0][1:])
         elif a[0] == "!insult":
             self.do_command(e, a[0][1:])
+        elif a[0] == "!tintin":
+            self.do_command(e, a[0][1:])
         elif a[0] == "!help":
             self.do_command(e, a[0][1:])
         return
@@ -109,7 +111,7 @@ class TestBot(irc.bot.SingleServerIRCBot):
              #print(search)
              
              api_instance = giphy_client.DefaultApi()
-             api_key = 'x' # str | Giphy API Key.
+             api_key = '[redacted]' # str | Giphy API Key.
              q = search # str | Search query term or prhase.
              limit = 1 # int | The maximum number of records to return. (optional) (default to 25)
              offset = 0 # int | An optional results offset. Defaults to 0. (optional) (default to 0)
@@ -139,6 +141,9 @@ class TestBot(irc.bot.SingleServerIRCBot):
         elif cmd == "insult":
              c.privmsg("#entiteparfaite",random.choice(list(open('insults.txt'))).strip())
 
+        elif cmd == "tintin":
+             c.privmsg("#entiteparfaite",random.choice(list(open('insults_tintin.txt'))).strip())
+             
         elif cmd == "help":
              c.privmsg("#entiteparfaite","!gif + <up to 5 keywords> = gif link")
              c.privmsg("#entiteparfaite","!wizz + <nickname> = annoys everyone")
